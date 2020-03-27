@@ -7,9 +7,9 @@
 </head>
 <body>
 <?php
-    include_once '../engine/navbar.php';
-    require_once 'content.php';
-    include_once '../engine/footer.php'
+include_once '../engine/navbar.php';
+require_once 'content.php';
+include_once '../engine/footer.php'
 ?>
 </body>
 </html>
