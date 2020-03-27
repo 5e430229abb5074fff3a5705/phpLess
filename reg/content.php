@@ -13,7 +13,6 @@
 
         if ( mysqli_num_rows($getValue) > 0 )
             echo '<span style="color: #FF0000; ">Логин занят</span>';
-
         else if ( !mysqli_query($db, "INSERT INTO Accounts (Login,Password,access) VALUES ('$Login','$Password',1) ") ) {
             header('Refresh: 10');
             echo 'Произошла какая-то ошибка. <s>Страница обновится через 10 секунд</s>';
@@ -33,21 +32,15 @@
         }
     }
     ?>
-
     <br><br>
-
     <label for="login_form"> Логин:
         <input type="text" name="Login" placeholder="Введите ваш логин" id="login_form" required/>
     </label>
-
     <br>
-
     <label for="password_form"> Пароль:
         <input type="password" name="Password" placeholder="Введите ваш пароль" id="password_form" required/>
     </label>
-
-    <br>
-    <br>
+    <br><br>
 
     <button type="submit" name="reg">Сохранить изменения</button>
     <button type="reset">Сбросить</button>
