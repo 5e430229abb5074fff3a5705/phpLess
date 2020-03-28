@@ -13,7 +13,7 @@
 
         if ( mysqli_num_rows($getValue) > 0 )
             echo '<span style="color: #FF0000; ">Логин занят</span>';
-        else if ( !mysqli_query($db, "INSERT INTO Accounts (Login,Password,access) VALUES ('$Login','$Password',1) ") ) {
+        else if ( !mysqli_query($db, "INSERT INTO Accounts (Login,Password,access) VALUES ('$Login','$Password',0) ") ) {
             header('Refresh: 10');
             echo 'Произошла какая-то ошибка. <s>Страница обновится через 10 секунд</s>';
         } else {
