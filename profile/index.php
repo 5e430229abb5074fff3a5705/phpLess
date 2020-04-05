@@ -1,5 +1,5 @@
 <?php require_once '../engine/config.php';
-if ($user['access'] != 1)
+if (!$user)
 {
     header('Location: ' . URL . '/auth');
     exit;
