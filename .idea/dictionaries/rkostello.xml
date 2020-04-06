@@ -4,6 +4,7 @@
       <w>htmlspecialchars</w>
       <w>intval</w>
       <w>navbar</w>
+      <w>passwd</w>
     </words>
   </dictionary>
 </component>
