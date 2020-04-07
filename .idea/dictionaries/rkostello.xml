@@ -3,8 +3,12 @@
     <words>
       <w>htmlspecialchars</w>
       <w>intval</w>
+      <w>lazyload</w>
+      <w>lazysizes</w>
       <w>navbar</w>
       <w>passwd</w>
+      <w>phpless</w>
+      <w>toggler</w>
     </words>
   </dictionary>
 </component>
