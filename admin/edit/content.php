@@ -43,7 +43,7 @@ if ($query_2 = mysqli_query($db,"SELECT * FROM `Accounts` WHERE `ID`='" . $id . 
                     <div class="form-group">
 
                         <label for="password_input">Пароль</label>
-                        <input name="Password" type="text" id="password_input" value="<?php echo htmlspecialchars($assoc_2['Password']); ?>" placeholder="Введите пароль" maxlength="64" class="form-control" required>
+                        <input name="Password" type="text" id="password_input" placeholder="<?php echo htmlspecialchars($assoc_2['Password']); ?>" maxlength="64" class="form-control" required>
 
                         <div class="form-group">
                             <label for="access_input">Доступ</label>
