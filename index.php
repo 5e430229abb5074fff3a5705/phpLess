@@ -7,12 +7,12 @@
 </head>
 <body>
 <div class="page-container">
-<?php
-include_once 'engine/navbar.php';
-require_once 'index/content.php';
-include_once 'engine/footer.php';
-include_once 'engine/scripts.php';
-?>
+    <?php
+    include_once 'engine/navbar.php';
+    require_once 'index/content.php';
+    include_once 'engine/footer.php';
+    include_once 'engine/scripts.php';
+    ?>
 </div>
 </body>
 </html>
