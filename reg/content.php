@@ -18,8 +18,8 @@
                         if ( mysqli_num_rows($getValue) > 0 ) { echo '<span style="color: #FF0000; ">Логин занят!</span>'; }
                         elseif( $_POST['Login'] == '' ) { echo '<span style="color: #FF0000; ">Введите Логин!</span><br>'; }
                         elseif( $_POST['Password'] == '' ) { echo '<span style="color: #FF0000; ">Введите Пароль!</span><br>'; }
-                        elseif(!preg_match("/^[a-zA-Z0-9]+$/",$_POST['Login'])) { echo '<span style="color: blue; ">Логин может состоять только из букв латинского алфавита и цифр!</span><br>'; }
-                        elseif(strlen($_POST['Password']) < 5 or strlen($_POST['Password']) > 64) { echo '<span style="color: blue; ">Пароль должен быть не меньше 5-х символов и не больше 64.</span>';}
+                        elseif( !preg_match("/^[a-zA-Z0-9]+$/", $_POST['Login']) ) { echo '<span style="color: blue; ">Логин может состоять только из букв латинского алфавита и цифр!</span><br>'; }
+                        elseif( strlen($_POST['Password']) < 5 or strlen($_POST['Password']) > 64 ) { echo '<span style="color: blue; ">Пароль должен быть не меньше 5-х символов и не больше 64.</span>';}
 
                         else {
                             if (!mysqli_query($db, "INSERT INTO Accounts (Login,Password,access) VALUES ('$Login','$Password',0) ")) {
