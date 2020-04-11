@@ -1,35 +1,50 @@
-<?php
-$id = intval($user['ID']);
+<!-- profile-bloc -->
+<div class="bloc bloc-fill-screen bg-forrest tc-black l-bloc" id="profile-bloc">
+    <div class="container">
+        <div class="row">
+            <div class="offset-lg-0 col-lg-3 offset-md-0 col-md-3 col-sm-4 col-5 d-sm-block d-none">
+                <div class="card">
+                    <img src="<?php echo URL; ?>/engine/img/lazyload-ph.png" data-src="<?php echo URL; ?>/engine/img/placeholder-user.png" class="img-fluid d-block img-margin-right lazyload" alt="placeholder user" />
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-12">
+                                <h3 class="mg-md text-center tc-black h3-margin-bottom btn-resize-mode"><?php echo htmlspecialchars($user['Login']); ?></h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="offset-lg-0 col-lg-9 bgc-white offset-md-0 col-md-9 col-sm-8">
+                <h3 class="mg-md tc-black h3-margin-top"><span class="fa fa-user-circle-o"></span> Личный кабинет | <small>Редактирование пароля</small></h3>
+                <?php
+                $id = intval($user['ID']);
+                if (isset($_POST['edit-passwd']))
+                {
+                    $Password = mysqli_real_escape_string($db, md5($_POST['Password']));
 
-if (isset($_POST['edit-passwd']))
-{
-    $Password = mysqli_real_escape_string($db, md5($_POST['Password']));
+                    if (mysqli_query($db,"UPDATE Accounts SET Password='$Password' WHERE id = '$id';"))
+                    {
+                        header("Refresh: 3; ../../profile");
+                        echo 'Операция выполнена успешно!';
+                    }
+                    else
+                    {
+                        header('Refresh: 10');
+                        echo 'Ошибка. Изменения не были сохранены. Страница обновится через 10 секунд.';
+                    }
+                }
+                ?>
+                <form method="POST" novalidate>
+                    <div class="form-group">
+                        <label for="password_input">Пароль</label>
+                        <input name="Password" type="text" id="password_input" placeholder="<?php echo htmlspecialchars($user['Password']); ?>" class="form-control" required>
+                    </div>
 
-    if (mysqli_query($db,"UPDATE Accounts SET Password='$Password' WHERE id = '$id';"))
-    {
-        header("Refresh: 3; ../../profile");
-        echo 'Операция выполнена успешно!';
-    }
-    else
-    {
-        header('Refresh: 10');
-        echo 'Ошибка. Изменения не были сохранены. Страница обновится через 10 секунд.';
-    }
-}
-?>
-<div id="edit-passwd">
-    <form method="post">
-
-        <h3>Редактирование пароля к аккаунту № <?php echo $id; ?></h3>
-
-        <label for="password_input">Пароль</label>
-        <input name="Password" type="text" id="password_input" placeholder="<?php echo htmlspecialchars($user['Password']); ?>" required>
-
-        <br><br>
-
-        <button type="submit" name="edit-passwd" class="">Сохранить</button>
-        <br><br><br>
-        <a href="../" class="">Назад</a>
-
-    </form>
+                    <button type="submit" name="edit-passwd" class="bloc-button btn btn-black float-lg-none">Сохранить</button>
+                    <a href="<?php echo URL; ?>/profile" class="bloc-button btn btn-black float-lg-none">Назад</a> <br><br><br>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
+<!-- profile-bloc END -->

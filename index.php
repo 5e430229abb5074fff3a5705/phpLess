@@ -1,30 +1,18 @@
-<?php
-require_once 'engine/config.php';
-
-if (!$user) {
-    echo 'Приветствую землянин!<br>Вы не авторизованы, войдите или зарегистрируйтесь на сайте чтобы прочесть анекдот!<br><br>
-
-<a href="' . URL . '/auth">Вход</a>
-<br>
-<a href="' . URL . '/reg">Регистрация</a>
-
-';
-}
-else {
-    echo "
-    
-    Привет, " . htmlspecialchars($user['Login']) . "! Рады встрече
-
-<br><br>
-Утро, завтрак. Мама, папа, сын. Сын:<br>
-— Мам, отгадай: О чем постоянно думает женщина? Слово из трех букв!<br>
-Мать шлеп сыну подзатыльник! Сын, плача:<br>
-— Это — \"ДОМ\"!<br>
-Муж разворачивается — шлеп жене подзатыльник:<br>
-— О доме, дура, нужно думать, о доме!<br>
-
-
-<a href='/profile'>Личный кабинет</a> [<a href='?logout'>Выйти из аккаунта</a>]
-
-";
-}
+<?php require_once './engine/config.php'; ?>
+<!doctype html>
+<html lang="ru">
+<head>
+    <?php require_once 'engine/head.php'; ?>
+    <title>Главная</title>
+</head>
+<body>
+<div class="page-container">
+    <?php
+    include_once 'engine/navbar.php';
+    require_once 'index/content.php';
+    include_once 'engine/footer.php';
+    include_once 'engine/scripts.php';
+    ?>
+</div>
+</body>
+</html>

@@ -1,4 +1,4 @@
-<?php require_once '../../engine/config.php'; if(!$user){header('Location: ' . URL . '/auth'); exit;} ?>
+<?php require_once '../../engine/config.php'; if (!$user) { header('Location: ' . URL . '/auth'); exit; } ?>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -6,10 +6,13 @@
     <title>Изменение вашего пароля</title>
 </head>
 <body>
-<?php
-include_once '../../engine/navbar.php';
-require_once 'content.php';
-include_once '../../engine/footer.php'
-?>
+<div class="page-container">
+    <?php
+    include_once '../../engine/navbar.php';
+    require_once 'content.php';
+    include_once '../../engine/footer.php';
+    include_once '../../engine/scripts.php';
+    ?>
+</div>
 </body>
 </html>

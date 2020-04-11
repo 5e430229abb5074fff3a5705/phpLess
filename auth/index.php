@@ -6,10 +6,13 @@
     <title>Авторизация</title>
 </head>
 <body>
-<?php
-include_once '../engine/navbar.php';
-require_once 'content.php';
-include_once '../engine/footer.php'
-?>
+<div class="page-container">
+    <?php
+    include_once '../engine/navbar.php';
+    require_once 'content.php';
+    include_once '../engine/footer.php';
+    include_once '../engine/scripts.php';
+    ?>
+</div>
 </body>
 </html>
