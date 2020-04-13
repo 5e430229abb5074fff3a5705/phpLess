@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
     <?php require_once '../../engine/head.php'; ?>
-    <title>Редактирование пользователя</title>
+    <title><?php echo $lang_admin_panel['edit title']; ?></title>
 </head>
 <body>
 <div class="page-container">

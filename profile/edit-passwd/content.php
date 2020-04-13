@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="offset-lg-0 col-lg-9 bgc-white offset-md-0 col-md-9 col-sm-8">
-                <h3 class="mg-md tc-black h3-margin-top"><span class="fa fa-user-circle-o"></span> Личный кабинет | <small>Редактирование пароля</small></h3>
+                <h3 class="mg-md tc-black h3-margin-top"><span class="fa fa-user-circle-o"></span> <?php echo $lang_profile['edit-passwd title']; ?></h3>
                 <?php
                 $id = intval($user['ID']);
                 if (isset($_POST['edit-passwd']))
@@ -25,23 +25,23 @@
                     if (mysqli_query($db,"UPDATE Accounts SET Password='$Password' WHERE id = '$id';"))
                     {
                         header("Refresh: 3; ../../profile");
-                        echo 'Операция выполнена успешно!';
+                        echo $lang_profile['The operation was completed successfully'];
                     }
                     else
                     {
                         header('Refresh: 10');
-                        echo 'Ошибка. Изменения не были сохранены. Страница обновится через 10 секунд.';
+                        echo $lang_profile['Error. The changes were not saved. The page will refresh in 10 seconds.'];
                     }
                 }
                 ?>
                 <form method="POST" novalidate>
                     <div class="form-group">
-                        <label for="password_input">Пароль</label>
-                        <input name="Password" type="text" id="password_input" placeholder="<?php echo htmlspecialchars($user['Password']); ?>" class="form-control" required>
+                        <label for="password_input"><?php echo $lang_profile['Password']; ?></label>
+                        <input name="Password" type="text" id="password_input" placeholder="<?php echo $lang_profile['Enter the password']; ?>" class="form-control" required>
                     </div>
 
-                    <button type="submit" name="edit-passwd" class="bloc-button btn btn-black float-lg-none">Сохранить</button>
-                    <a href="<?php echo URL; ?>/profile" class="bloc-button btn btn-black float-lg-none">Назад</a> <br><br><br>
+                    <button type="submit" name="edit-passwd" class="bloc-button btn btn-black float-lg-none"><?php echo $lang_profile['Save']; ?></button>
+                    <a href="<?php echo URL; ?>/profile" class="bloc-button btn btn-black float-lg-none"><?php echo $lang_profile['Back']; ?></a> <br><br><br>
                 </form>
             </div>
         </div>
