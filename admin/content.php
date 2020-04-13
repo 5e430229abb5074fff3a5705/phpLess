@@ -6,9 +6,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <p>
-                            Карточка 1
-                        </p>
+                        <p>Карточка 1</p>
                     </div>
                 </div>
             </div>
@@ -16,9 +14,14 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <p>
-                            Карточка 2
-                        </p>
+                        <p>Карточка 2</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <p>Карточка 3</p>
                     </div>
                 </div>
             </div>
@@ -26,19 +29,7 @@
             <div class="col">
                 <div class="card">
                     <div class="card-body">
-                        <p>
-                            Карточка 3
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <p>
-                            Карточка 4
-                        </p>
+                        <p>Карточка 4</p>
                     </div>
                 </div>
             </div>

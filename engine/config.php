@@ -17,6 +17,14 @@ $protocol = !isset($_SERVER['HTTPS']) || $_SERVER['HTTPS'] != 'on' ? 'http' : 'h
 define('URL', ''. $protocol . '://'. $_SERVER['HTTP_HOST'] . ''); // 2
 
 /*
+ * Управление языковой локализацией
+ */
+$lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+$supportLanguage = ['ru', 'en'];
+$lang = in_array($lang, $supportLanguage) ? $lang : 'en';
+require_once(__DIR__.'/lang/' . $lang . '.php');
+
+/*
  * Подключаем файл конфигураций базы данных MySQL
  */
 require_once('MySQL.php');
