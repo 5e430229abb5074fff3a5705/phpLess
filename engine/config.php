@@ -37,7 +37,14 @@ require_once('functions.php');
 /*
  * Проверка на авторизацию
  */
-$user = isset($_SESSION['Login'], $_SESSION['Password']) ? authentication($_SESSION['Login'], $_SESSION['Password']) : 0;
+if (isset($_SESSION['Login'], $_SESSION['Password']))
+{
+    $user = authentication($_SESSION['Login'], $_SESSION['Password']);
+}
+else
+{
+    $user = 0;
+}
 
 /*
  * Отменяем авторизацию путём снятия сессии
