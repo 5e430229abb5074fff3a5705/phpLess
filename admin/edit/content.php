@@ -1,19 +1,25 @@
 <?php
 $id = $_GET['id'];
 
-if ( empty($id) ) {
-    header('Location: ' . URL . '/admin/list'); exit;
-}
+if ( empty($id) ) { header('Location: ' . URL . '/admin/list'); exit; }
 
 if ($query_2 = mysqli_query($db,"SELECT * FROM `Accounts` WHERE `ID`='" . $id . "'"))
     $assoc_2 = mysqli_fetch_assoc($query_2);
 {
     if (isset($_POST['editProfile']))
     {
-        $Login = mysqli_real_escape_string($db, $_POST['Login']);
-        $Password = mysqli_real_escape_string($db, md5($_POST['Password']));
-        $access = mysqli_real_escape_string($db, $_POST['access']);
-
+        if ( $assoc_2['Password'] == md5($_POST['Password']) or $assoc_2['Password'] == $_POST['Password'] or $assoc_2['Password'] == empty($_POST['Password']) )  {
+            //echo 'Пароль одинаковый<br>'; //Можете разкоментировать что-бы проверить
+            $Login = mysqli_real_escape_string($db, $_POST['Login']);
+            $Password = mysqli_real_escape_string($db, $assoc_2['Password']);
+            $access = mysqli_real_escape_string($db, $_POST['access']);
+        }
+        else {
+            //echo 'Пароль разный<br>'; //Можете разкоментировать что-бы проверить
+            $Login = mysqli_real_escape_string($db, $_POST['Login']);
+            $Password = mysqli_real_escape_string($db, md5($_POST['Password']));
+            $access = mysqli_real_escape_string($db, $_POST['access']);
+        }
         if (mysqli_query($db,"UPDATE Accounts SET Login='$Login',Password='$Password',access='$access' WHERE id = '$id';"))
         {
             header("Refresh: 3; ../list");
@@ -24,6 +30,7 @@ if ($query_2 = mysqli_query($db,"SELECT * FROM `Accounts` WHERE `ID`='" . $id . 
             header('Refresh: 10');
             echo $lang_admin_panel['Error. The changes were not saved. The page will refresh in 10 seconds.'];
         }
+
     }
 }
 ?>
@@ -43,12 +50,12 @@ if ($query_2 = mysqli_query($db,"SELECT * FROM `Accounts` WHERE `ID`='" . $id . 
                     <div class="form-group">
 
                         <label for="password_input"><?php echo $lang_admin_panel['Password']; ?></label>
-                        <input name="Password" type="text" id="password_input" placeholder="<?php echo htmlspecialchars($assoc_2['Password']); ?>" maxlength="64" class="form-control" required>
+                        <input name="Password" type="text" id="password_input" value="<?php echo htmlspecialchars($assoc_2['Password']); ?>" placeholder="<?php echo $lang_admin_panel['Enter the password']; ?>" maxlength="64" class="form-control">
 
                         <div class="form-group">
                             <label for="access_input"><?php echo $lang_admin_panel['Access']; ?></label>
-                            <select class="form-control option-select-margin-top" id="access_input">
-                                <option value="<?php intval($assoc_2['access']); ?>"><?php echo $lang_admin_panel['Current']; ?>: <?php echo access($assoc_2['access']); ?></option>
+                            <select name="access" class="form-control option-select-margin-top" id="access_input">
+                                <option value="<?php echo intval($assoc_2['access']); ?>"><?php echo $lang_admin_panel['Current']; ?>: <?php echo access($assoc_2['access']); ?></option>
                                 <option disabled>_____________________</option>
                                 <option value="0">User</option>
                                 <option value="1">Administrator</option>
