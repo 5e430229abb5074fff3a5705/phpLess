@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
     <?php require_once '../engine/head.php'; ?>
-    <title>Админ панель</title>
+    <title><?php echo $lang_admin_panel['Title']; ?></title>
 </head>
 <body>
 <div class="page-container">

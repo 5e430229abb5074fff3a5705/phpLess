@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
     <?php require_once '../../engine/head.php'; ?>
-    <title><?php echo $lang_admin_panel['list title']; ?></title>
+    <title><?php echo $lang_admin_panel['create-user title']; ?></title>
 </head>
 <body>
 <div class="page-container">

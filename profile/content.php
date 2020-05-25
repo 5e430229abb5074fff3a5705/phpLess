@@ -15,11 +15,11 @@
                 </div>
             </div>
             <div class="offset-lg-0 col-lg-9 bgc-white offset-md-0 col-md-9 col-sm-8">
-                <h3 class="mg-md tc-black h3-margin-top"><span class="fa fa-user-circle-o"></span> Личный кабинет</h3>
-                <p>Ваш логин: <?php echo htmlspecialchars($user['Login']); ?></p>
-                <p data-placement="top" data-toggle="tooltip" title="ваш пароль надёжно защищен технолонией шифрования MD5">Ваш пароль:&nbsp;<a class="ltc-ferrari-red" href="<?php echo URL; ?>/profile/edit-passwd"><?php echo htmlspecialchars($user['Password']); ?></a></p>
-                <p>Ваш уровень доступа: <?php echo access($user['access']); ?></p>
-                <a href="<?php echo URL; ?>/profile/edit" class="btn btn-sm btn-black btn-style float-lg-none">Редактировать</a>
+                <h3 class="mg-md tc-black h3-margin-top"><span class="fa fa-user-circle-o"></span> <?php echo $lang_profile['Title']; ?></h3>
+                <p><?php echo $lang_profile['Your login']; ?>: <?php echo htmlspecialchars($user['Login']); ?></p>
+                <p data-placement="top" data-toggle="tooltip" title="<?php echo $lang_profile['Your password is securely protected by MD5 encryption technology']; ?>"><?php echo $lang_profile['Your password']; ?>:&nbsp;<a class="ltc-ferrari-red" href="<?php echo URL; ?>/profile/edit-passwd"><?php echo htmlspecialchars($user['Password']); ?></a></p>
+                <p><?php echo $lang_profile['Your access level']; ?>: <?php echo access($user['access']); ?></p>
+                <a href="<?php echo URL; ?>/profile/edit" class="btn btn-sm btn-black btn-style float-lg-none"><?php echo $lang_profile['Edit']; ?></a>
             </div>
         </div>
     </div>

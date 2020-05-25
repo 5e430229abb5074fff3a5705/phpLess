@@ -15,7 +15,7 @@
                 </div>
             </div>
             <div class="offset-lg-0 col-lg-9 bgc-white offset-md-0 col-md-9 col-sm-8">
-                <h3 class="mg-md tc-black h3-margin-top"><span class="fa fa-user-circle-o"></span> Личный кабинет | <small>Редактирование</small></h3>
+                <h3 class="mg-md tc-black h3-margin-top"><span class="fa fa-user-circle-o"></span> <?php echo $lang_profile['edit title']; ?></h3>
                 <?php
                 $user_ID = intval($user['ID']);
 
@@ -25,23 +25,23 @@
                     if (mysqli_query($db,"UPDATE Accounts SET Login='$Login' WHERE id = '$user_ID';"))
                     {
                         header("Refresh: 3; ../../profile");
-                        echo 'Операция выполнена успешно!';
+                        echo $lang_profile['The operation was completed successfully'];
                     }
                     else
                     {
                         header('Refresh: 10');
-                        echo 'Ошибка. Изменения не были сохранены. Страница обновится через 10 секунд.';
+                        echo $lang_profile['Error. The changes were not saved. The page will refresh in 10 seconds.'];
                     }
                 }
                 ?>
                 <form method="POST" novalidate>
                     <div class="form-group">
-                        <label for="login_input">Логин:</label>
-                        <input name="Login" type="text" id="login_input" placeholder="Введите логин" value="<?php echo htmlspecialchars($user['Login']); ?>" class="form-control" required/>
+                        <label for="login_input"><?php echo $lang_profile['Login']; ?>:</label>
+                        <input name="Login" type="text" id="login_input" placeholder="<?php echo htmlspecialchars($user['Login']); ?>" value="<?php echo htmlspecialchars($user['Login']); ?>" class="form-control" required/>
                     </div>
 
-                    <button type="submit" name="edit" class="bloc-button btn btn-black float-lg-none">Сохранить</button>
-                    <a href="<?php echo URL; ?>/profile" class="bloc-button btn btn-black float-lg-none">Назад</a> <br><br><br>
+                    <button type="submit" name="edit" class="bloc-button btn btn-black float-lg-none"><?php echo $lang_profile['Save']; ?></button>
+                    <a href="<?php echo URL; ?>/profile" class="bloc-button btn btn-black float-lg-none"><?php echo $lang_profile['Back']; ?></a> <br><br><br>
                 </form>
             </div>
         </div>

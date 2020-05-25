@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
     <?php require_once 'engine/head.php'; ?>
-    <title>Главная</title>
+    <title><?php echo $lang_index['Title']; ?></title>
 </head>
 <body>
 <div class="page-container">

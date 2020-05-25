@@ -3,7 +3,7 @@
 <html lang="ru">
 <head>
     <?php require_once '../../engine/head.php'; ?>
-    <title>Изменение вашего пароля</title>
+    <title><?php echo $lang_profile['edit-passwd title']; ?></title>
 </head>
 <body>
 <div class="page-container">
