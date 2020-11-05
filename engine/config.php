@@ -52,7 +52,10 @@ $user = isset($_SESSION['Login'], $_SESSION['Password']) ? authentication($_SESS
 /*
  * Отменяем авторизацию путём снятия сессии
  */
-if ($user && isset($_GET['logout'])) {
-    session_unset($_SESSION['Login'], $_SESSION['Password']);
-    header('Location: ' . URL); exit;
+switch ($user && isset($_GET['logout'])) {
+    case 'logout':
+        unset($_SESSION['Login'], $_SESSION['Password']);
+        session_destroy();
+        header('Location: ' . URL);
+        break;
 }
